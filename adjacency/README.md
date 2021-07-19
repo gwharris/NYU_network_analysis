@@ -1,0 +1,1 @@
+Some directories within this directory are hidden due to sensitive information. Please message me to ask for a full project description/presentation!

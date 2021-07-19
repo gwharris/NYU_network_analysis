@@ -1,0 +1,7 @@
+ASSUMPTIONS:
+
+Testing the funnel on actual attendees - if someone applies to a ton of events and has been rejected from all of them, I don't count that. Only counting the flow-through rate
+
+Bootcamp data is messy - only 2021 is cleaned in a way where I can tell who actually came
+
+for the bootcamps, I ignored cofounders after the 3rd cause I couldn't do it automatically. Can go back and find those. No diversity info for them. Early bootcamps (2018-2019) don't have diversity info
