@@ -29,15 +29,15 @@ def open_affinity(path):
     line = line.strip("\n")
     # {Name: List of Events, 2018-2019, 2019-2020, 2020-2021}
     item = {line: [
-      ["Coaching",          0, 0, 0,  "blue"],
-      ["Startup School",    0, 0, 0,  "blue"],
-      ["Female Founders",   0,        "blue"],
-      ["HTSAS",             0, 0, 0,  "blue"],
-      ["Bootcamp Apps",     0, 0, 0,  "blue"],
-      ["JSprint",           0, 0, 0,  "purple"],
-      ["Summer Applicants", 0, 0, 0,  "purple"],
-      ["Summer Sprint",     0, 0, 0,  "purple"],
-      ["SLP",               0, 0, 0,  "purple"]
+      ["Coaching",          0, 0, 0],
+      ["Startup School",    0, 0, 0],
+      ["Female Founders",   0],
+      ["HTSAS",             0, 0, 0],
+      ["Bootcamp Apps",     0, 0, 0],
+      ["JSprint",           0, 0, 0],
+      ["Summer Applicants", 0, 0, 0],
+      ["Summer Sprint",     0, 0, 0],
+      ["SLP",               0, 0, 0]
       ]}
     rc.append(item)
   fd.close()
@@ -86,11 +86,11 @@ def print_adj(all_item, adj_macro, adj_list, adj_simple):
     for event in person:
       for event_year in event:
         count = 0
-        for i in range(1, len(event_year)-1):
+        for i in range(1, len(event_year)):
           if event_year[i] == 0:
             continue
           count += event_year[i]
-          adj_macro.write(name.title() + "," + event_year[0] + " " + str(2018 + i) + "," + str(event_year[i]) + "," + event_year(len(event_year)-1) + "\n")
+          adj_macro.write(name.title() + "," + event_year[0] + " " + str(2018 + i) + "," + str(event_year[i]) + "\n")
           adj_list[i-1].write(name.title() + "," + event_year[0] + " " + str(2018 + i) + "," + str(event_year[i]) + "\n")
         if count == 0:
           continue
