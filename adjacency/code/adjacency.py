@@ -31,7 +31,7 @@ def open_affinity(path):
     item = {line: [
       ["Coaching",          0, 0, 0],
       ["Startup School",    0, 0, 0],
-      ["Female Founders",   0],
+      ["Female Founders",   0, 0, 0],
       ["HTSAS",             0, 0, 0],
       ["Bootcamp Apps",     0, 0, 0],
       ["JSprint",           0, 0, 0],
@@ -126,7 +126,10 @@ coaching_2021 = csv_to_list("../../coaching/csv/2020_2021_coaching.csv")
 coaching = [coaching_2019, coaching_2020, coaching_2021]
 
 # Female Founders
-ff = csv_to_list("../../eventbrite/ff_names.csv")
+ff_2019 = csv_to_list("../../eventbrite/female_founders_2019.csv")
+ff_2020 = csv_to_list("../../eventbrite/female_founders_2020.csv")
+ff_2021 = csv_to_list("../../eventbrite/female_founders_2021.csv")
+ff = [ff_2019, ff_2020, ff_2021]
 
 # Startup School
 ss_2019 = csv_to_list("../../startup_school/Startup School 2019.csv")
@@ -178,7 +181,7 @@ print("\nCalculating people adjacency...\n") # DEBUG
 for item in all_people:
   name = sorted(item)[0]
   item = add_adjacency(item, name, coaching, 1, 0) # Loop through coaching years
-  item = add_adjacency(item, name, [ff], 0, 2) 
+  item = add_adjacency(item, name, ff, 0, 2) 
   item = add_adjacency(item, name, ss, 1, 1) 
   item = add_adjacency(item, name, htsas, 1, 3) 
   item = add_adjacency(item, name, bcs, 1, 4) 
