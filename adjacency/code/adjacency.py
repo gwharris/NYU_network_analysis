@@ -1,7 +1,7 @@
 """
 Graham Harris
 Summer Data Project
-Transforms data into a adjacency lists for easy network visualization.
+Transforms data into a adjacency lists for easy network visualization. Runs with command line arguments.
 """
 
 import timeit
