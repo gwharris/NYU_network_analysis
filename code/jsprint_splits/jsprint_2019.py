@@ -25,10 +25,10 @@ def print_range(file, line, num1, num2):
 
 # -------------- MAIN --------------
 
-apps = csv_to_list("../../jsprints/2019/jsprint2019.csv")
-ss = open("../../jsprints/2019/jsprint2019_cleaned.csv", "w")
+apps = csv_to_list("../../application_programs/jsprints/2019/jsprint2019.csv")
+ss = open("../../application_programs/jsprints/2019/jsprint2019_accepted.csv", "w")
 ss.write("Team/Venture Name,First Name,Last Name,Email,NYU Net ID (ex. jcc23),NYU Affiliation,NYU School/College,Expected Graduation Year,Pronoun(s),If you identify with an under-represented population in STEM please describe\n")
-not_acc = open("../../jsprints/2019/jsprint2019_applied_not_accepted.csv", "w")
+not_acc = open("../../application_programs/jsprints/2019/jsprint2019_applied_not_accepted.csv", "w")
 not_acc.write("Team/Venture Name,First Name,Last Name,Email,NYU Net ID (ex. jcc23),NYU Affiliation,NYU School/College,Expected Graduation Year,Pronoun(s),If you identify with an under-represented population in STEM please describe\n")
 
 for line in apps:
