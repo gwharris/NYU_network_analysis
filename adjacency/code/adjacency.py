@@ -21,7 +21,7 @@ def csv_to_list(path):
   return rc
 
 # Creates nested list of people/orgs from affinity
-def open_affinity(path):
+def create_adjacency(path):
   fd = open(path, "r")
   rc = []
   for line in fd:
@@ -29,15 +29,15 @@ def open_affinity(path):
     line = line.strip("\n")
     # {Name: List of Events, 2018-2019, 2019-2020, 2020-2021}
     item = {line: [
-      ["Coaching",          0, 0, 0],
-      ["Startup School",    0, 0, 0],
-      ["Female Founders",   0, 0, 0],
-      ["HTSAS",             0, 0, 0],
-      ["Bootcamp Apps",     0, 0, 0],
-      ["JSprint",           0, 0, 0],
-      ["Summer Applicants", 0, 0, 0],
-      ["Summer Sprint",     0, 0, 0],
-      ["SLP",               0, 0, 0]
+      ["Coaching",                  0, 0, 0],
+      ["Startup School",            0, 0, 0],
+      ["Female Founders",           0, 0, 0],
+      ["HTSAS",                     0, 0, 0],
+      ["Bootcamp Applications",     0, 0, 0],
+      ["JSprint Attendee",          0, 0, 0],
+      ["Summer Applications",       0, 0, 0],
+      ["Summer Sprint Attendee",    0, 0, 0],
+      ["SLP Attendee",              0, 0, 0]
       ]}
     rc.append(item)
   fd.close()
@@ -116,8 +116,8 @@ teams_list = [teams_2019, teams_2020, teams_2021]
 people_list = [people_2019, people_2020, people_2021]
 
 # Affinity nested lists
-all_people = open_affinity("../../affinity/all_people.csv")
-all_orgs = open_affinity("../../affinity/all_organizations.csv")
+all_people = create_adjacency("../../affinity/all_people.csv")
+all_orgs = create_adjacency("../../affinity/all_organizations.csv")
 
 # Coaching
 coaching_2019 = csv_to_list("../../coaching/csv/2018_2019_coaching.csv")
@@ -144,33 +144,33 @@ htsas_2021 = csv_to_list("../../HTSAS/htsas_2021.csv")
 htsas = [htsas_2019, htsas_2020, htsas_2021]
 
 # Bootcamp Apps
-bc_2019 = csv_to_list("../../bootcamps/applications_19_person_view.csv")
-bc_2020 = csv_to_list("../../bootcamps/applications_20_person_view.csv")
-bc_2021 = csv_to_list("../../bootcamps/applications_21_person_view.csv")
+bc_2019 = csv_to_list("../../application_programs/bootcamps/applications_19_person_view.csv")
+bc_2020 = csv_to_list("../../application_programs/bootcamps/applications_20_person_view.csv")
+bc_2021 = csv_to_list("../../application_programs/bootcamps/applications_21_person_view.csv")
 bcs = [bc_2019, bc_2020, bc_2021]
 
 # JSprint
-jsprint_2019 = csv_to_list("../../jsprints/jsprint2019_cleaned.csv")
-jsprint_2020 = csv_to_list("../../jsprints/jsprint2020_cleaned.csv")
-jsprint_2021 = csv_to_list("../../jsprints/jsprint2021_cleaned.csv")
+jsprint_2019 = csv_to_list("../../application_programs/jsprints/jsprint2019_cleaned.csv")
+jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_cleaned.csv")
+jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_cleaned.csv")
 jsprints = [jsprint_2019, jsprint_2020, jsprint_2021]
 
 # Summer Applicants
-summer_app_2019 = csv_to_list("../../summer_accelerators/apps/all_applications_2019.csv")
-summer_app_2020 = csv_to_list("../../summer_accelerators/apps/all_applications_2020.csv")
-summer_app_2021 = csv_to_list("../../summer_accelerators/apps/all_applications_2021.csv")
+summer_app_2019 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2019.csv")
+summer_app_2020 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2020.csv")
+summer_app_2021 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2021.csv")
 summer_apps = [summer_app_2019, summer_app_2020, summer_app_2021]
 
 # Summer Sprint
-summer_sprint_2019 = csv_to_list("../../summer_accelerators/sprint/summer_sprint_2019.csv")
-summer_sprint_2020 = csv_to_list("../../summer_accelerators/sprint/summer_sprint_2020.csv")
-summer_sprint_2021 = csv_to_list("../../summer_accelerators/sprint/summer_sprint_2021.csv")
+summer_sprint_2019 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2019.csv")
+summer_sprint_2020 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2020.csv")
+summer_sprint_2021 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2021.csv")
 summer_sprints = [summer_sprint_2019, summer_sprint_2020, summer_sprint_2021]
 
 # SLP
-slp_2019 = csv_to_list("../../summer_accelerators/SLP/slp_2019.csv")
-slp_2020 = csv_to_list("../../summer_accelerators/SLP/slp_2020.csv")
-slp_2021 = csv_to_list("../../summer_accelerators/SLP/slp_2021.csv")
+slp_2019 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2019.csv")
+slp_2020 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2020.csv")
+slp_2021 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2021.csv")
 slps = [slp_2019, slp_2020, slp_2021]
 
 # -------------- MAIN --------------
