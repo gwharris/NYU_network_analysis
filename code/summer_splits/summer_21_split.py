@@ -37,21 +37,23 @@ def format(file, line):
 
 # -------------- MAIN --------------
 
-apps = csv_to_list("../../summer_accelerators/SA_2021/Accelerators2021.csv")
-slp = open("../../summer_accelerators/SA_2021/slp_2021.csv", "w")
-sprint = open("../../summer_accelerators/SA_2021/summer_sprint_2021.csv", "w")
-all_apps = open("../../summer_accelerators/SA_2021/all_applications_2021.csv", "w")
+apps = csv_to_list("../../application_programs/summer_accelerators/SA_2021/Accelerators2021.csv")
+slp = open("../../application_programs/summer_accelerators/SA_2021/slp_applications_2021.csv", "w")
+sprint = open("../../application_programs/summer_accelerators/SA_2021/ssprint_applications_2021.csv", "w")
 slp.write("Team/Venture Name,First Name,Last Name,Email,NYU Net ID (ex. jcc23),NYU Affiliation,NYU School/College,Expected Graduation Year,Pronoun(s),If you identify with an under-represented population in STEM  please describe\n")
 sprint.write("Team/Venture Name,First Name,Last Name,Email,NYU Net ID (ex. jcc23),NYU Affiliation,NYU School/College,Expected Graduation Year,Pronoun(s),If you identify with an under-represented population in STEM  please describe\n")
-all_apps.write("Team/Venture Name,First Name,Last Name,Email,NYU Net ID (ex. jcc23),NYU Affiliation,NYU School/College,Expected Graduation Year,Pronoun(s),If you identify with an under-represented population in STEM  please describe\n")
 
 for line in apps:
-  if "Yes" in line[0]:
+  if "Sprint" in line[56]:
     format(sprint, line)
-  if "Yes" in line[1]:
+  elif "SLP" in line[56]:
     format(slp, line)
-  format(all_apps, line)
+  elif "Both" in line[56]:
+    format(slp, line)
+    format(sprint, line)
+  else:
+    print("wrong column")
+  print("x")
   
 slp.close()
 sprint.close()
-all_apps.close()
