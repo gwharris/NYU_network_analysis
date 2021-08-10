@@ -29,9 +29,9 @@ def association():
   bc_2020 = csv_to_list("../../application_programs/bootcamps/applications_20_person_view.csv")
   bc_2021 = csv_to_list("../../application_programs/bootcamps/applications_21_person_view.csv")
   # JSprint
-  jsprint_2019 = csv_to_list("../../application_programs/jsprints/jsprint2019_cleaned.csv")
-  jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_cleaned.csv")
-  jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_cleaned.csv")
+  jsprint_2019 = csv_to_list("../../application_programs/jsprints/jsprint2019_apps.csv")
+  jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_apps.csv")
+  jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_apps.csv")
 
   # Summer Applicants
   summer_app_2019 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2019.csv")
@@ -82,4 +82,4 @@ for line in bc2021:
     added_adj.write(line[0].title() + ",Bootcamp Participant 2021," + str(1) + "\n")
 
 
-# association() only needed to run once
+association() # only needs to run once

@@ -34,10 +34,10 @@ def create_adjacency(path):
       ["Female Founders",           0, 0, 0],
       ["HTSAS",                     0, 0, 0],
       ["Bootcamp Applications",     0, 0, 0],
-      ["JSprint Attendee",          0, 0, 0],
+      ["JSprint Applications",      0, 0, 0],
       ["Summer Applications",       0, 0, 0],
-      ["Summer Sprint Attendee",    0, 0, 0],
-      ["SLP Attendee",              0, 0, 0]
+      ["SSprint Applications",      0, 0, 0],
+      ["SLP Applications",          0, 0, 0]
       ]}
     rc.append(item)
   fd.close()
@@ -150,9 +150,9 @@ bc_2021 = csv_to_list("../../application_programs/bootcamps/applications_21_pers
 bcs = [bc_2019, bc_2020, bc_2021]
 
 # JSprint
-jsprint_2019 = csv_to_list("../../application_programs/jsprints/jsprint2019_cleaned.csv")
-jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_cleaned.csv")
-jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_cleaned.csv")
+jsprint_2019 = csv_to_list("../../application_programs/jsprints/jsprint2019_apps.csv")
+jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_apps.csv")
+jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_apps.csv")
 jsprints = [jsprint_2019, jsprint_2020, jsprint_2021]
 
 # Summer Applicants
