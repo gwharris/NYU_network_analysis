@@ -28,7 +28,7 @@ def print_range(file, line, num1, num2):
 apps = csv_to_list("../../jsprints/2021/2021_all3_apps.csv")
 ff = open("../../jsprints/2021/female_founders_fellow_apps.csv", "w")
 gg = open("../../jsprints/2021/first_gen_fellow_apps.csv", "w")
-ss = open("../../jsprints/2021/sprint_2021_apps.csv", "w")
+ss = open("../../jsprints/2021/jsprint_2021_apps.csv", "w")
 ff.write("Which program are you applying for?,Team/Venture Name,First Name,Last Name,Email (ENTER AN NYU; NYU STERN; or NYU LANGONE EMAIL ADDRESS ONLY),NYU Affiliation,NYU Net ID (ex. jcc23),NYU School/College - Selected Choice,Expected Graduation Year (If graduated 1+ year ago; please indicate graduating year in 'other'),Pronoun(s),If you identify with an under-represented population in STEM; please describe.\n")
 gg.write("Which program are you applying for?,Team/Venture Name,First Name,Last Name,Email (ENTER AN NYU; NYU STERN; or NYU LANGONE EMAIL ADDRESS ONLY),NYU Affiliation,NYU Net ID (ex. jcc23),NYU School/College - Selected Choice,Expected Graduation Year (If graduated 1+ year ago; please indicate graduating year in 'other'),Pronoun(s),If you identify with an under-represented population in STEM; please describe.\n")
 ss.write("Which program are you applying for?,Team/Venture Name,First Name,Last Name,Email (ENTER AN NYU; NYU STERN; or NYU LANGONE EMAIL ADDRESS ONLY),NYU Affiliation,NYU Net ID (ex. jcc23),NYU School/College - Selected Choice,Expected Graduation Year (If graduated 1+ year ago; please indicate graduating year in 'other'),Pronoun(s),If you identify with an under-represented population in STEM; please describe.\n")
