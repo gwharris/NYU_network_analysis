@@ -16,8 +16,6 @@ try:
 
   df = pd.read_csv("../data/" + line + ".csv")
 
-  # ST = nx.from_pandas_edgelist(df, source="Source", target="Target", edge_attr=["Weight"])
-
   net = Network(notebook=True, height="750px", width="75%")
   net.force_atlas_2based()
   net.show_buttons(filter_="physics")
@@ -29,7 +27,6 @@ try:
   edges = zip(source, target, weight)
 
   subfunnel = ["JSprint", "SLP", "Summer Sprint"]
-  applications = ["Bootcamp Apps", "Summer Applicants"]
   temp = []
   for i in range(2018, 2022):
     year = str(i)
@@ -42,10 +39,10 @@ try:
   for src, dst, wgt in edges:
     # Add nodes and edges to the graph
     net.add_node(src, src, title=src, color='#D4D4D4')
-    if dst in applications:
+    if "Applications" in dst:
       net.add_node(dst, dst, title=dst, color='#02aebb')
       net.add_edge(src, dst, color='#1ac8d9')
-    if dst in subfunnel:
+    if "Participants" in dst:
       net.add_node(dst, dst, title=dst, color='#7908C4')
       net.add_edge(src, dst, color="#9007EB")
     else:
