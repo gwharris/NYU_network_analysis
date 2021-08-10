@@ -29,15 +29,14 @@ def create_adjacency(path):
     line = line.strip("\n")
     # {Name: List of Events, 2018-2019, 2019-2020, 2020-2021}
     item = {line: [
-      ["Coaching",                  0, 0, 0],
-      ["Startup School",            0, 0, 0],
-      ["Female Founders",           0, 0, 0],
-      ["HTSAS",                     0, 0, 0],
-      ["Bootcamp Applications",     0, 0, 0],
-      ["JSprint Applications",      0, 0, 0],
-      ["Summer Applications",       0, 0, 0],
-      ["SSprint Applications",      0, 0, 0],
-      ["SLP Applications",          0, 0, 0]
+      ["Coaching",                    0, 0, 0],
+      ["Startup School",              0, 0, 0],
+      ["Female Founders",             0, 0, 0],
+      ["HTSAS",                       0, 0, 0],
+      ["Bootcamp Applications",       0, 0, 0],
+      ["January Sprint Applications", 0, 0, 0],
+      ["Summer Sprint Applications",  0, 0, 0],
+      ["SLP Applications",            0, 0, 0]
       ]}
     rc.append(item)
   fd.close()
@@ -155,22 +154,16 @@ jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_apps
 jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_apps.csv")
 jsprints = [jsprint_2019, jsprint_2020, jsprint_2021]
 
-# Summer Applicants
-summer_app_2019 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2019.csv")
-summer_app_2020 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2020.csv")
-summer_app_2021 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2021.csv")
-summer_apps = [summer_app_2019, summer_app_2020, summer_app_2021]
-
 # Summer Sprint
-summer_sprint_2019 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2019.csv")
-summer_sprint_2020 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2020.csv")
-summer_sprint_2021 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2021.csv")
+summer_sprint_2019 = csv_to_list("../../application_programs/summer_accelerators/sprint/ssprint_applications_2019.csv")
+summer_sprint_2020 = csv_to_list("../../application_programs/summer_accelerators/sprint/ssprint_applications_2020.csv")
+summer_sprint_2021 = csv_to_list("../../application_programs/summer_accelerators/sprint/ssprint_applications_2021.csv")
 summer_sprints = [summer_sprint_2019, summer_sprint_2020, summer_sprint_2021]
 
 # SLP
-slp_2019 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2019.csv")
-slp_2020 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2020.csv")
-slp_2021 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2021.csv")
+slp_2019 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2019.csv")
+slp_2020 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2020.csv")
+slp_2021 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2021.csv")
 slps = [slp_2019, slp_2020, slp_2021]
 
 # -------------- MAIN --------------
@@ -186,18 +179,16 @@ for item in all_people:
   item = add_adjacency(item, name, htsas, 1, 3) 
   item = add_adjacency(item, name, bcs, 1, 4) 
   item = add_adjacency(item, name, jsprints, 1, 5) 
-  item = add_adjacency(item, name, summer_apps, 1, 6) 
-  item = add_adjacency(item, name, summer_sprints, 1, 7) 
-  item = add_adjacency(item, name, slps, 1, 8) 
+  item = add_adjacency(item, name, summer_sprints, 1, 6) 
+  item = add_adjacency(item, name, slps, 1, 7) 
 
 print("Calculating organization adjacency...\n") # DEBUG
 for item in all_orgs:
   name = sorted(item)[0]
   item = binary_adjacency(item, name, bcs, 0, 4) 
   item = binary_adjacency(item, name, jsprints, 0, 5) 
-  item = binary_adjacency(item, name, summer_apps, 0, 6) 
-  item = binary_adjacency(item, name, summer_sprints, 0, 7) 
-  item = binary_adjacency(item, name, slps, 0, 8) 
+  item = binary_adjacency(item, name, summer_sprints, 0, 6) 
+  item = binary_adjacency(item, name, slps, 0, 7) 
 
 print("Filtering zeros from people adjacency...\n")
 all_people = filter_zeros(all_people)
