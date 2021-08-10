@@ -32,54 +32,151 @@ def association():
   jsprint_2019 = csv_to_list("../../application_programs/jsprints/jsprint2019_apps.csv")
   jsprint_2020 = csv_to_list("../../application_programs/jsprints/jsprint2020_apps.csv")
   jsprint_2021 = csv_to_list("../../application_programs/jsprints/jsprint2021_apps.csv")
-
-  # Summer Applicants
-  summer_app_2019 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2019.csv")
-  summer_app_2020 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2020.csv")
-  summer_app_2021 = csv_to_list("../../application_programs/summer_accelerators/apps/all_applications_2021.csv")
   # Summer Sprint
-  summer_sprint_2019 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2019.csv")
-  summer_sprint_2020 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2020.csv")
-  summer_sprint_2021 = csv_to_list("../../application_programs/summer_accelerators/sprint/summer_sprint_2021.csv")
+  summer_sprint_2019 = csv_to_list("../../application_programs/summer_accelerators/sprint/ssprint_applications_2019.csv")
+  summer_sprint_2020 = csv_to_list("../../application_programs/summer_accelerators/sprint/ssprint_applications_2020.csv")
+  summer_sprint_2021 = csv_to_list("../../application_programs/summer_accelerators/sprint/ssprint_applications_2021.csv")
   # SLP
-  slp_2019 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2019.csv")
-  slp_2020 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2020.csv")
-  slp_2021 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_2021.csv")
-  all_files = [bc_2019, bc_2020, bc_2021, jsprint_2019, jsprint_2020, jsprint_2021, summer_app_2019, summer_app_2020, summer_app_2021, summer_sprint_2019, summer_sprint_2020, summer_sprint_2021,slp_2019, slp_2020, slp_2021]
+  slp_2019 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2019.csv")
+  slp_2020 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2020.csv")
+  slp_2021 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2021.csv")
+  all_files = [bc_2019, bc_2020, bc_2021, jsprint_2019, jsprint_2020, jsprint_2021, summer_sprint_2019, summer_sprint_2020, summer_sprint_2021,slp_2019, slp_2020, slp_2021]
 
   # Loop through all association files to link people to teams
   tpf.write("Team,Individual\n")
+  # check = []
+
   for f in all_files:
     for line in f:
-      x = line[0].strip(" ")
-      y = line[1].strip(" ")
-      tpf.write(x.title() + "," + y.title() + "\n")
+      x = line[0].strip(" \"")
+      y = line[1].strip(" \"")
+      item = x.title() + "," + y.title() + "\n"
+      # if item not in check:
+        # check.append(item)
+        # tpf.write(item)
+      if x in team_to_people:
+        team_to_people[x].append(y)
+      else:
+        team_to_people[x] = [y]
+  
+  return team_to_people
 
-bc2019 = csv_to_list("../../application_programs/master_lists/18-19 Teams App.csv")
-###### missing one
-bc2021 = csv_to_list("../../application_programs/master_lists/20-21 Teams App.csv")
+# Participant files
+participants2019 = csv_to_list("../../application_programs/master_lists/18-19 Teams App.csv")
+participants2020 = csv_to_list("../../application_programs/master_lists/19-20 Teams App.csv")
+participants2021 = csv_to_list("../../application_programs/master_lists/20-21 Teams App.csv")
 
 # Write files
 added_adj = open("../data/added_adjacency.csv", 'w') # adjacency to add to lists
+bad = open("../data/unable_to_resolve.csv", "w")
+bad.write("List of companies that did not register in the algorithm due to a number of reasons - name changes; misspellings; punctuation; etc.,Graham's Notes\n")
 
-# PEOPLE
-added_adj.write("PEOPLE\n\n")
-
+tp = association() # also prints association file
+print(len(tp))
 
 # TEAMS
-added_adj.write("\nTEAMS\n\n")
-added_adj.write("2019\n")
-for line in bc2019:
+bc2019 = []
+bc2020 = []
+bc2021 = []
+sp2019 = []
+sp2020 = []
+sp2021 = []
+sl2019 = []
+sl2020 = []
+sl2021 = []
+added_adj.write("\tTEAMS\n")
+added_adj.write("\n2018-2019\n")
+for line in participants2019:
   if line[3] == "yes":
     added_adj.write(line[0].title() + ",Bootcamp Participant 2019," + str(1) + "\n")
-# added_adj.write("\n2020\n")
-# for line in bc2020:
-#   if line[X] == "yes":
-#     added_adj.write(line[0].title() + ",Bootcamp Participant 2020," + str(1) + "\n")
-added_adj.write("\n2021\n")
-for line in bc2021:
+    bc2019.append(line[0])
+  if line[4] == "yes":
+    added_adj.write(line[0].title() + ",Sprint Participant 2019," + str(1) + "\n")
+    sp2019.append(line[0])
+  if line[7] == "yes":
+    added_adj.write(line[0].title() + ",SLP Participant 2019," + str(1) + "\n")
+    sl2019.append(line[0])
+added_adj.write("\n2019-2020\n")
+for line in participants2020:
+  if line[3] == "yes":
+    added_adj.write(line[0].title() + ",Bootcamp Participant 2020," + str(1) + "\n")
+    bc2020.append(line[0])
+  if line[4] == "yes":
+    added_adj.write(line[0].title() + ",Sprint Participant 2020," + str(1) + "\n")
+    sp2020.append(line[0])
+  if line[8] == "yes":
+    added_adj.write(line[0].title() + ",SLP Participant 2020," + str(1) + "\n")
+    sl2020.append(line[0])
+added_adj.write("\n2020-2021\n")
+for line in participants2021:
   if line[2] == "yes":
     added_adj.write(line[0].title() + ",Bootcamp Participant 2021," + str(1) + "\n")
+    bc2021.append(line[0])
+  if line[3] == "yes":
+    added_adj.write(line[0].title() + ",Sprint Participant 2021," + str(1) + "\n")
+    sp2021.append(line[0])
+  if line[4] == "yes":
+    added_adj.write(line[0].title() + ",SLP Participant 2021," + str(1) + "\n")
+    sl2021.append(line[0])
 
+# PEOPLE
+added_adj.write("\n\n\tPEOPLE\n")
 
-association() # only needs to run once
+print("\n\n\n")
+added_adj.write("\n2018-2019\n")
+for team in bc2019:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",Bootcamp Participant 2019," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2019 bc\n")
+for team in sp2019:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",Sprint Participant 2019," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2019 sp\n")
+for team in sl2019:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",SLP Participant 2019," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2019 slp\n")
+added_adj.write("\n2019-2020\n")
+for team in bc2020:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",Bootcamp Participant 2020," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2020 bc\n")
+for team in sp2020:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",Sprint Participant 2020," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2020 sp\n")
+for team in sl2020:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",SLP Participant 2020," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2020 slp\n")
+added_adj.write("\n2020-2021\n")
+for team in bc2021:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",Bootcamp Participant 2021," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2021 bc\n")
+for team in sp2021:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",Sprint Participant 2021," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2021 sp\n")
+for team in sl2021:
+  if team in tp:
+    for person in tp[team]:
+      added_adj.write(person.title() + ",SLP Participant 2021," + str(1) + "\n")
+  else:
+    bad.write(team + ",could not be found 2021 slp\n")
