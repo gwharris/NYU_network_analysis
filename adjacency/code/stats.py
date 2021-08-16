@@ -52,6 +52,8 @@ try:
   fd = open("../stats/" + read + ".txt", "w")
   for e in single_event:
     fd.write(e + ": " + str(single_event[e]) + " people (" + str((single_event[e]/multiple_event[e]) * 100) + "%)\n")
+  
+  print("success")
 
 except:
   print("oops")
