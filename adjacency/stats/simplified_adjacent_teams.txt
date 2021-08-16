@@ -1,5 +1,0 @@
-summer applicants: 77 people (40.10416666666667%)
-bootcamp apps: 276 people (64.7887323943662%)
-jsprint: 47 people (35.338345864661655%)
-summer sprint: 0 people (0.0%)
-slp: 0 people (0.0%)
