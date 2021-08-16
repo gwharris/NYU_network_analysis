@@ -197,9 +197,9 @@ all_orgs = filter_zeros(all_orgs)
 
 # Print format
 print("Writing to people adjacency...\n")
-print_adj(all_people, people_adj, people_list, simplified_people_adj)
+# print_adj(all_people, people_adj, people_list, simplified_people_adj)
 print("Writing to organization adjacency...\n")
-print_adj(all_orgs, teams_adj, teams_list, simplified_teams_adj)
+# print_adj(all_orgs, teams_adj, teams_list, simplified_teams_adj)
 
 # End timer
 stop = timeit.default_timer() # Time program run
