@@ -45,4 +45,4 @@ for arg in sys.argv:
     net.show("../html/" + arg + ".html")
 
   except:
-    print("\nunable to read argument: " + arg)
+    print("\n\tUnable to read argument: " + arg)
