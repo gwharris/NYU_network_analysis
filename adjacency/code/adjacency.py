@@ -34,8 +34,7 @@ def create_adjacency(path):
       ["Female Founders",             0, 0, 0],
       ["HTSAS",                       0, 0, 0],
       ["Bootcamp Applications",       0, 0, 0],
-      ["January Sprint Applications", 0, 0, 0],
-      ["Summer Sprint Applications",  0, 0, 0],
+      ["Sprint Applications",         0, 0, 0],
       ["SLP Applications",            0, 0, 0]
       ]}
     rc.append(item)
@@ -179,16 +178,16 @@ for item in all_people:
   item = add_adjacency(item, name, htsas, 1, 3) 
   item = add_adjacency(item, name, bcs, 1, 4) 
   item = add_adjacency(item, name, jsprints, 1, 5) 
-  item = add_adjacency(item, name, summer_sprints, 1, 6) 
-  item = add_adjacency(item, name, slps, 1, 7) 
+  item = add_adjacency(item, name, summer_sprints, 1, 5) 
+  item = add_adjacency(item, name, slps, 1, 6) 
 
 print("Calculating organization adjacency...\n") # DEBUG
 for item in all_orgs:
   name = sorted(item)[0]
   item = binary_adjacency(item, name, bcs, 0, 4) 
   item = binary_adjacency(item, name, jsprints, 0, 5) 
-  item = binary_adjacency(item, name, summer_sprints, 0, 6) 
-  item = binary_adjacency(item, name, slps, 0, 7) 
+  item = binary_adjacency(item, name, summer_sprints, 0, 5) 
+  item = binary_adjacency(item, name, slps, 0, 6) 
 
 print("Filtering zeros from people adjacency...\n")
 all_people = filter_zeros(all_people)
@@ -197,9 +196,9 @@ all_orgs = filter_zeros(all_orgs)
 
 # Print format
 print("Writing to people adjacency...\n")
-# print_adj(all_people, people_adj, people_list, simplified_people_adj)
+print_adj(all_people, people_adj, people_list, simplified_people_adj)
 print("Writing to organization adjacency...\n")
-# print_adj(all_orgs, teams_adj, teams_list, simplified_teams_adj)
+print_adj(all_orgs, teams_adj, teams_list, simplified_teams_adj)
 
 # End timer
 stop = timeit.default_timer() # Time program run
