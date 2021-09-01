@@ -48,16 +48,16 @@ def association():
 
   for f in all_files:
     for line in f:
-      x = line[0].strip(" \"")
-      y = line[1].strip(" \"")
-      item = x.title() + "," + y.title() + "\n"
+      line[0] = line[0].strip(" \"")
+      line[1] = line[1].strip(" \"")
+      item = line[0].title() + "," + line[1].title() + "\n"
       # if item not in check:
         # check.append(item)
         # tpf.write(item)
-      if x in team_to_people:
-        team_to_people[x].append(y)
+      if line[0] in team_to_people:
+        team_to_people[line[0]].append(line[1])
       else:
-        team_to_people[x] = [y]
+        team_to_people[line[0]] = [line[1]]
   
   return team_to_people
 
