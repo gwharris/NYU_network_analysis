@@ -51,11 +51,19 @@ for arg in sys.argv:
       multiple_event[line[1]] += 1
 
     # Write numbers to file
+    single_counter = 0
+    multiple_counter = 0
     fd = open("../stats/" + arg + "_individual_fallout.txt", "w")
     fd.write("Fallout for each program:\n")
     for e in single_event:
       fd.write(e + ": " + str(single_event[e]) + " people (" + str((single_event[e]/multiple_event[e]) * 100) + "%)\n")
-
+    for e in single_event:
+      if "startup school" in e or "htsas" in e or "female founders" in e:
+        single_counter += single_event[e]
+        multiple_counter += multiple_event[e]
+    if multiple_counter != 0:
+      fd.write("TOP OF FUNNEL: " + str(single_counter) + " people (" + str((single_counter/multiple_counter) * 100) + "%)\n")
+    
     print("Success")
 
   except:
