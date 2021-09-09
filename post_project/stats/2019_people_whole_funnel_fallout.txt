@@ -1,0 +1,9 @@
+Conversion rate between each program:
+HTSAS to BC App: 23.333333333333332%
+SS to BC App: 11.811023622047244%
+FF to BC App: 7.490144546649145%
+All top-of-funnel to BC App: 10.13215859030837%
+BC App to BC Attendee: 41.891891891891895%
+BC Attendee to Sprint App: 41.41414141414141%
+Sprint App to Sprint Attendee: 22.596153846153847%
+Sprint Attendee to SLP App: 46.391752577319586%
