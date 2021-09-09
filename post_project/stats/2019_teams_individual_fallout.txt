@@ -1,7 +1,0 @@
-Fallout for each program:
-slp applications 2019: 14 people (21.875%)
-bootcamp applications 2019: 46 people (37.39837398373984%)
-sprint applications 2019: 25 people (27.472527472527474%)
-bootcamp participant 2019: 9 people (10.0%)
-sprint participant 2019: 16 people (40.0%)
-slp participant 2019: 2 people (22.22222222222222%)

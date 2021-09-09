@@ -1,5 +1,0 @@
-Conversion rate between each program:
-BC App to BC Attendee: 53.65853658536586%
-BC Attendee to Sprint App: 35.55555555555556%
-Sprint App to Sprint Attendee: 20.87912087912088%
-Sprint Attendee to SLP App: 40.816326530612244%
