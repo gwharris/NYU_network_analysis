@@ -1,0 +1,10 @@
+Fallout for each program:
+startup school 2019: 608 people (79.89487516425756%)
+female founders 2019: 155 people (61.023622047244096%)
+htsas 2019: 47 people (39.166666666666664%)
+bootcamp applications 2019: 56 people (25.225225225225223%)
+sprint applications 2019: 41 people (19.71153846153846%)
+slp applications 2019: 30 people (20.689655172413794%)
+bootcamp participant 2019: 43 people (21.71717171717172%)
+sprint participant 2019: 9 people (11.688311688311687%)
+slp participant 2019: 0 people (0.0%)
