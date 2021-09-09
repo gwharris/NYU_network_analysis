@@ -1,7 +1,7 @@
 """
 Graham Harris
 Summer Data Project
-Copy of stats_copy.py from main project, except the program tracks the fallout rate between program to program.
+Copy of stats_copy.py from main project, except the program tracks the conversion/fallout rate between program to program.
 """
 
 import sys
