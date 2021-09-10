@@ -78,10 +78,10 @@ for arg in sys.argv:
       elif "slp app" in line[1]:
         sl_app.append(line[0])
       elif "slp part" in line[1]:
-        sp_att.append(line[0])
+        sl_att.append(line[0])
 
     tof = htsas + ff + ss
-    all_lists = [htsas, ff,     ss,     tof,    bc_app, bc_att, sp_app, sp_att, sl_app, sl_att]
+    all_lists = [htsas, ff,     ss,     tof,    bc_app, bc_att, sp_app, sp_att, sl_app]
     list_org = [bc_app, bc_app, bc_app, bc_app, bc_att, sp_app, sp_att, sl_app, sl_att]
 
     # Count conversion
@@ -96,8 +96,8 @@ for arg in sys.argv:
     sl_app_to_att = 0
     all_nums = [htsas_to_bc, ss_to_bc, ff_to_bc, tof_to_bc, bc_app_to_att, bc_att_to_sp_app, sp_app_to_att, sp_att_to_slp_app, sl_app_to_att]
     descriptions = ["HTSAS to BC App",
-          "SS to BC App",
           "FF to BC App",
+          "SS to BC App",
           "All top-of-funnel to BC App",
           "BC App to BC Attendee",
           "BC Attendee to Sprint App",
@@ -105,14 +105,14 @@ for arg in sys.argv:
           "Sprint Attendee to SLP App",
           "SLP App to SLP Attendee"]
     
-    for i in range(0,8):
+    for i in range(0,9):
       if len(list_org[i]) != 0 and len(all_lists[i]) != 0:
         all_nums[i] = count_all(all_lists[i], list_org[i], all_nums[i])
 
     # Write numbers to file
-    fd = open("../stats/" + arg + "_whole_funnel_fallout.txt", "w")
+    fd = open("../stats/" + arg + "_conversion.txt", "w")
     fd.write("Conversion rate between each program:\n")
-    for i in range(0,8):
+    for i in range(0,9):
       if len(all_lists[i]) != 0:
         fd.write(descriptions[i] + ": " + str((all_nums[i]/len(all_lists[i])) *100) + "%\n")
 
