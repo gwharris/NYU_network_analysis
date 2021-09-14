@@ -114,7 +114,7 @@ for arg in sys.argv:
     fd.write("Conversion rate between each program:\n")
     for i in range(0,9):
       if len(all_lists[i]) != 0:
-        fd.write(descriptions[i] + ": " + str((all_nums[i]/len(all_lists[i])) *100) + "%\n")
+        fd.write(descriptions[i] + ": " + str((all_nums[i]/len(all_lists[i])) *100) + "% (" + str(all_nums[i]) + " people)\n")
 
     print("Success")
 
