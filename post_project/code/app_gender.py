@@ -47,7 +47,9 @@ slp_2019 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_a
 slp_2020 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2020.csv")
 slp_2021 = csv_to_list("../../application_programs/summer_accelerators/SLP/slp_applications_2021.csv")
 
-add_adj = csv_to_list("../data/added_adjacency_copy.csv")
+lines = csv_to_list("../data/added_adjacency_copy.csv")
+add_adj = []
+[add_adj.append(line) for line in lines if line not in add_adj] # eliminate
 
 gender = open("../data/gender.csv", "w")
 
